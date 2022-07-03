@@ -1,0 +1,213 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "180"
+ENV["FASTLANE_XCODE_LIST_TIMEOUT"] = "180"
+
+
+SCHEME = "TMProject"
+IPA_TIME = Time.now.strftime("%Y%m%d_%H%M")
+OUTPUT_DIRECTORY = "packages"
+APP_INFO_PLIST_PATH = "./TMProject/Info.plist"
+ENV_PREFIX=""
+
+
+
+BundleID = ""
+AppID = ""
+AppVersion = ""
+TeamID = ""
+ProfileName = ""
+BuildNumber = ""
+ 
+
+
+default_platform(:ios)
+
+def updateProjectBuildNumber
+  # build = get_info_plist_value(path: "./Info.plist", key: 'CFBundleVersion')
+
+  # lastNum = build.to_i
+  # lastNum = lastNum + 1
+  # lastStr = lastNum.to_s
+
+  puts("*************| 更新build #{BuildNumber} |*************")
+  # => 更改项目 build 号
+  increment_build_number(
+    build_number: "#{BuildNumber}"
+  )
+
+  # set_info_plist_value(path: "./Info.plist", key: "CFBundleVersion", value: "#{lastStr}") 
+
+
+end
+
+
+
+platform :ios do
+  desc "Description of what the lane does"
+
+  before_all do|lane, options|
+  	xcode_select "/Applications/Xcode.app"
+   	FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT = "40"
+   	BundleID = options[:bundleID]
+   	TeamID = options[:teamID]
+   	ProfileName = options[:profileName]
+
+   	AppID = options[:appId]
+  	AppVersion = options[:appVersion]
+
+    ENV_PREFIX=options[:prefix]
+    BuildNumber=options[:buildNumber]
+
+
+    
+
+
+  end
+
+  lane :development_dev do|options|
+    updateProjectBuildNumber #更改项目build号
+	 puts "开始打development ipa"	
+	 package(configuration: "Debug", exportMethod:"development", code_signing_identity:"iPhone Developer")
+  end
+
+  lane :adhoc_dis do|options|
+    updateProjectBuildNumber #更改项目build号
+    puts "开始打adhoc ipa"	
+    package(configuration: "Release", exportMethod:"ad-hoc", code_signing_identity:"iPhone Distribution")
+  end
+
+  lane :appstore_dis do|options|
+    updateProjectBuildNumber #更改项目build号
+    puts "开始打appstore ipa"	
+    package(configuration: "Release", exportMethod:"app-store", code_signing_identity:"iPhone Distribution")
+  end
+
+  lane :enterprise_dis do|options|
+    updateProjectBuildNumber #更改项目build号
+    puts "开始打enterprise ipa"	
+    package(configuration: "Release", exportMethod:"enterprise", code_signing_identity:"iPhone Distribution")
+  end
+
+  lane :pgyer do|options|
+    puts "开始打测试包 ipa"  
+    package(configuration: "Release", exportMethod:"enterprise", code_signing_identity:"iPhone Distribution")
+  end
+
+  lane :package do |option|
+
+    puts("**********开始打包啦啦啦111***********")
+  	updateCer(configuration: option[:configuration], exportMethod:option[:exportMethod], code_signing_identity:option[:code_signing_identity])
+  	puts("**********开始打包啦啦啦222***********")
+    currentTime = Time.new.strftime("%Y%m%d")
+    puts("**********exportMethod:")
+    puts(option[:exportMethod])
+  	# 开始打包
+  	gym(
+  		scheme: "#{SCHEME}",
+
+  		#输出的ipa名称
+  		output_name:"#{AppID}_#{AppVersion}_#{get_build_number()}#{ENV_PREFIX}",
+  		# 是否清空以前的编译信息 true：是
+  		clean:true,
+  		# 指定打包方式，Release 或者 Debug
+  		configuration:option[:configuration],
+  		# 指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development
+  		export_method:option[:exportMethod],
+  		include_symbols: false,
+        	include_bitcode: false,
+        	xcargs: 'DEBUG_INFORMATION_FORMAT="dwarf-with-dsym"',
+
+  		# 指定输出文件夹
+  		output_directory:"./fastlane/build/#{AppID}_#{AppVersion}_#{currentTime}",
+        	export_xcargs: "-allowProvisioningUpdates"
+  	)
+  end
+
+  lane :updateCer do |option|
+
+    puts("**********开始更新证书111***********")
+    profilePath = "./CertificateConfig/provision/" + "#{ProfileName}" + ".mobileprovision"
+
+
+ 
+    # 打包之前更新bundle ID
+    update_app_identifier(
+    	xcodeproj:"TMProject.xcodeproj",
+        plist_path:"./TMProject/Info.plist",
+        app_identifier:"#{BundleID}"
+    )
+
+    puts("**********开始更新证书2222***********")
+    puts(profilePath)
+    puts(option[:configuration])
+    puts(option[:code_signing_identity])
+
+    # 打包之前跟新指定配置的描述文件(苹果官方证书过期，导致打不上包，必须要更新描述证书,用下面方法替代update_code_signing_settings)
+#     update_project_provisioning(
+#         # 之前有sigh下载的描述文件存储路径
+#         profile:profilePath,
+#
+#         # 打包配置，Debug，Release
+#         build_configuration:option[:configuration],
+#         code_signing_identity: option[:code_signing_identity]
+#     )
+
+    #新方法配置签名(官方issue看到这个方法能解决此问题)
+    update_code_signing_settings(
+        path: "TMProject.xcodeproj",
+        team_id: TeamID,
+        targets:"TMProject",
+        code_sign_identity:option[:code_signing_identity],
+        profile_name: ProfileName
+    )
+
+    puts("**********开始更新证书333***********")
+
+    automatic_code_signing(
+        # 工程文件所在路径
+        path:"TMProject.xcodeproj",
+        # 是否使用自动签名，这里如果是打包的话应该一般都为false吧，默认也是false
+        use_automatic_signing:false,
+        # 打包的team ID， 也就是打包使用的证书中的team ID，这个如果不知道是什么的话可以在xCode中设置好签名用的描述文件后到xcodeproj下的pbxproj文件中搜索“DEVELOPMENT_TEAM”，它的值就是了
+        team_id:TeamID,
+        # 这个就不用说了，需要修改的targets
+        targets:"TMProject",
+        # 用哪种方式打包“iPhone Develop”还是“iPhone Distribution”
+        code_sign_identity:option[:code_signing_identity],
+        # 描述文件名称， 也就是使用哪个描述文件打包
+        profile_name:ProfileName
+    )
+    puts("**********开始更新证书444***********")
+
+
+  end
+
+    lane :ipa_resign_dev do |option|
+
+      resign(
+        ipa: option[:ipaPath], # can omit if using the `ipa` action
+        signing_identity: TeamID,
+        provisioning_profile: ProfileName, # can omit if using the _sigh_ action
+        use_app_entitlements:true,
+      )
+   end
+
+  error do |lane, exception|
+    puts("Fastlane打包失败,具体原因请查看日志")
+  end
+
+end

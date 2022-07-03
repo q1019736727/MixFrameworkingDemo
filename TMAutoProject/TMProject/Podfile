@@ -1,0 +1,43 @@
+platform :ios, '10.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'TMProject’ do
+
+ #use_frameworks!
+
+pod 'TMSDK','0.0.62'
+
+pod 'AliyunOSSiOS', '2.10.12'
+
+#pod 'TMNavigation', '0.0.80'
+pod 'TMNavigation', '0.0.82'
+
+
+pod 'BaiduMobStatCodeless', '5.2.6'
+pod 'Bugly'
+
+pod 'YBImageBrowser', '3.0.8'
+pod 'JKCategories'
+pod 'TZImagePickerController', :git => 'http://gitlab.360tianma.com:8099/renxukui/TZImagePickerControllerSpec.git'
+
+pod 'SSZipArchive', '2.2.3'
+ 
+pod 'TMComponentKitSDK', '0.0.34'
+#pod 'TMWebViewKitSDK', '0.0.53'
+pod 'TMAdManageSDK', '0.1.8'
+pod 'Protobuf', '3.19.1'
+
+  pod 'QYTestSDK', :git => 'https://github.com/q1019736727/QYTestSDKSpec.git', :tag => '0.0.7'
+
+
+
+
+ inhibit_all_warnings!
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+end

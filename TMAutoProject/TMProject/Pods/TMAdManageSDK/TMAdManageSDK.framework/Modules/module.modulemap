@@ -1,0 +1,6 @@
+framework module TMAdManageSDK {
+  umbrella header "TMAdManageSDK.h"
+
+  export *
+  module * { export * }
+}

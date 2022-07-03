@@ -1,0 +1,6 @@
+module Pods_TMProject {
+  umbrella header "Pods-TMProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
