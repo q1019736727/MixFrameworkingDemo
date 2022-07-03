@@ -1,2 +1,2 @@
 # MixFrameworkingDemo
-MixFrameworkingDemo
+QYTestSDKSpec OCSwift混合静态库使用实例
