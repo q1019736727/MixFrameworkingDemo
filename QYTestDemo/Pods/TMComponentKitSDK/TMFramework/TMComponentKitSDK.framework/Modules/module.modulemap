@@ -1,0 +1,6 @@
+framework module TMComponentKitSDK {
+  umbrella header "TMComponentKitSDK.h"
+
+  export *
+  module * { export * }
+}

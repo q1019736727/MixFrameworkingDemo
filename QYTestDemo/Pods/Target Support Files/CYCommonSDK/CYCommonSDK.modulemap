@@ -1,0 +1,6 @@
+framework module CYCommonSDK {
+  umbrella header "CYCommonSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

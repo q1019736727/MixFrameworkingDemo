@@ -1,0 +1,6 @@
+framework module TMWebViewKitSDK {
+  umbrella header "TMWebViewKitSDK.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,172 @@
+PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - Alamofire (5.6.1)
+  - AliyunOSSiOS (2.10.14)
+  - AMapFoundation (1.7.0)
+  - AMapLocation (2.9.0):
+    - AMapFoundation (>= 1.7.0)
+  - CYCommonSDK (0.1.2)
+  - DZNEmptyDataSet (1.8.1)
+  - FCUUID (1.3.1):
+    - UICKeyChainStore (~> 2.1.0)
+  - IQKeyboardManager (6.5.10)
+  - JCore (2.1.4-noidfa)
+  - JPush (3.3.3):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - JXCategoryView (1.6.0)
+  - JXPagingView/Pager (2.1.2)
+  - Masonry (1.1.0)
+  - MJRefresh (3.7.5)
+  - SDCycleScrollView (1.82):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.13.0):
+    - SDWebImage/Core (= 5.13.0)
+  - SDWebImage/Core (5.13.0)
+  - SVProgressHUD (2.2.5)
+  - TMComponentKitSDK (0.0.34):
+    - Masonry
+    - MJRefresh
+    - SDWebImage
+    - SVProgressHUD
+    - TMSDK
+  - TMCTYunOssSDK (0.0.4)
+  - TMSDK (0.0.67):
+    - AFNetworking
+    - AliyunOSSiOS
+    - AMapLocation
+    - FCUUID
+    - JCore (= 2.1.4-noidfa)
+    - JPush (= 3.3.3)
+    - TMCTYunOssSDK
+  - TMShare (0.0.39):
+    - TMComponentKitSDK
+    - TMSDK
+    - TMWechatOpenSDK
+    - Weibo_SDK (= 3.2.5.1)
+  - TMUserCenter (0.1.482):
+    - DZNEmptyDataSet
+    - IQKeyboardManager
+    - JXCategoryView
+    - JXPagingView/Pager
+    - Masonry
+    - MJRefresh
+    - SDCycleScrollView
+    - SDWebImage
+    - SVProgressHUD
+    - TMComponentKitSDK
+    - TMSDK (~> 0.0.40)
+    - TMShare
+    - WMPageController
+    - YYText
+  - TMWebViewJavascriptBridge (0.0.1)
+  - TMWebViewKitSDK (0.0.65):
+    - SVProgressHUD
+    - TMComponentKitSDK
+    - TMSDK
+    - TMUserCenter
+    - TMWebViewJavascriptBridge
+    - TZImagePickerController
+  - TMWechatOpenSDK (0.0.5)
+  - TMWVKBrokeNewsSDK (0.0.3):
+    - TMSDK
+    - TMUserCenter
+    - TMWebViewKitSDK
+  - TZImagePickerController (3.8.1)
+  - UICKeyChainStore (2.1.2)
+  - Weibo_SDK (3.2.5.1)
+  - WMPageController (2.5.2)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - Alamofire
+  - CYCommonSDK
+  - SVProgressHUD
+  - TMComponentKitSDK
+  - TMWVKBrokeNewsSDK
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - Alamofire
+    - AliyunOSSiOS
+    - AMapFoundation
+    - AMapLocation
+    - CYCommonSDK
+    - DZNEmptyDataSet
+    - FCUUID
+    - IQKeyboardManager
+    - JCore
+    - JPush
+    - JXCategoryView
+    - JXPagingView
+    - Masonry
+    - MJRefresh
+    - SDCycleScrollView
+    - SDWebImage
+    - SVProgressHUD
+    - TMComponentKitSDK
+    - TMCTYunOssSDK
+    - TMSDK
+    - TMShare
+    - TMUserCenter
+    - TMWebViewJavascriptBridge
+    - TMWebViewKitSDK
+    - TMWechatOpenSDK
+    - TMWVKBrokeNewsSDK
+    - TZImagePickerController
+    - UICKeyChainStore
+    - Weibo_SDK
+    - WMPageController
+    - YYText
+
+SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  AliyunOSSiOS: 2599b2799e2ec50b69f60d48ac956a7938d4ee12
+  AMapFoundation: c14fcebd8e4267c593bd2e25067ac86b0ce64aba
+  AMapLocation: f5eb11e11c62f0f599f80b578eec8a1f70deb985
+  CYCommonSDK: 2851e17763a9286c69f3c772ae182792ae3a67eb
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
+  IQKeyboardManager: 45a1fa55c1a5b02c61ac0fd7fd5b62bb4ad20d97
+  JCore: 2f15311e6889ab43ed5d629802ef793cac566465
+  JPush: 61b3dc8c2bdefb7c48e7ca283f9fe42e71bfe063
+  JXCategoryView: 99c87854c67659f7e2ef1b43079656a46b36b398
+  JXPagingView: 90924b364a2ff7e94db534fad1fa50925ff69ee4
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
+  SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
+  SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TMComponentKitSDK: 443d48b317a7612015511cef30419f39cecbe6b9
+  TMCTYunOssSDK: d043a469e04af40eb4e4c813e62c25f6c2eb6524
+  TMSDK: d0ee54afcba967a1651df5cb01c77a1c054365fd
+  TMShare: 257025d760f200d1a507a01c68467273f77571a5
+  TMUserCenter: 5bea6a571362267032a88fc292f812eb53ca99ec
+  TMWebViewJavascriptBridge: aff8a2168a0e0491aeae389777be9323ac704e5e
+  TMWebViewKitSDK: 0bedd520f05ce5dcb7cfe92608435b92053c71b0
+  TMWechatOpenSDK: ae6bc008b43634da0a58905adbdf953f82a20cd9
+  TMWVKBrokeNewsSDK: 59eec5904ca2167a23cb862a87247dc932c7a61f
+  TZImagePickerController: 943511626019431372cf908f24c114521e484f0e
+  UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
+  Weibo_SDK: 76455315cb43d6a63c1990bf91483f05a98d45fd
+  WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: 09130a9f63368bca4d6d5e5cb088f05233a689b8
+
+COCOAPODS: 1.11.3

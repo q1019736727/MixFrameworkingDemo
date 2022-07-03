@@ -1,0 +1,6 @@
+framework module TMWVKBrokeNewsSDK {
+  umbrella header "TMWVKBrokeNewsSDK.h"
+
+  export *
+  module * { export * }
+}

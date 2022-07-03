@@ -1,0 +1,11 @@
+framework module QYTestSDK {
+  umbrella header "QYTestSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module QYTestSDK.Swift {
+    header "QYTestSDK-Swift.h"
+    requires objc
+}

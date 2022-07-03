@@ -1,0 +1,1 @@
+../../../TMWechatOpenSDK/TMFramework/WechatAuthSDK.h

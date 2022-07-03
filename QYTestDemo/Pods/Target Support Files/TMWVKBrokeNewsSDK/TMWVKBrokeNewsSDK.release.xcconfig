@@ -1,0 +1,15 @@
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
+CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/TMWVKBrokeNewsSDK
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/AliyunOSSiOS" "${PODS_CONFIGURATION_BUILD_DIR}/DZNEmptyDataSet" "${PODS_CONFIGURATION_BUILD_DIR}/FCUUID" "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager" "${PODS_CONFIGURATION_BUILD_DIR}/JXCategoryView" "${PODS_CONFIGURATION_BUILD_DIR}/JXPagingView" "${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/SDCycleScrollView" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage" "${PODS_CONFIGURATION_BUILD_DIR}/SVProgressHUD" "${PODS_CONFIGURATION_BUILD_DIR}/TMWebViewJavascriptBridge" "${PODS_CONFIGURATION_BUILD_DIR}/TZImagePickerController" "${PODS_CONFIGURATION_BUILD_DIR}/UICKeyChainStore" "${PODS_CONFIGURATION_BUILD_DIR}/WMPageController" "${PODS_CONFIGURATION_BUILD_DIR}/YYText" "${PODS_ROOT}/AMapFoundation" "${PODS_ROOT}/AMapLocation" "${PODS_ROOT}/TMCTYunOssSDK/ios" "${PODS_ROOT}/TMComponentKitSDK/TMFramework" "${PODS_ROOT}/TMSDK/TMFramework" "${PODS_ROOT}/TMShare/TMFramework" "${PODS_ROOT}/TMUserCenter/TMFramework" "${PODS_ROOT}/TMWVKBrokeNewsSDK/TMFramework" "${PODS_ROOT}/TMWebViewKitSDK/TMFramework"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public"
+OTHER_LDFLAGS = $(inherited) -framework "CFNetwork" -framework "CoreFoundation" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreTelephony" -framework "CoreText" -framework "ExternalAccessory" -framework "Foundation" -framework "ImageIO" -framework "Photos" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "UIKit" -framework "WebKit" -weak_framework "UserNotifications"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}
+PODS_TARGET_SRCROOT = ${PODS_ROOT}/TMWVKBrokeNewsSDK
+PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
+PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
+SKIP_INSTALL = YES
+SWIFT_INCLUDE_PATHS = $(inherited) "${PODS_ROOT}/JCore" "${PODS_ROOT}/JPush" "${PODS_ROOT}/TMWechatOpenSDK/TMFramework" "${PODS_ROOT}/Weibo_SDK/libWeiboSDK"
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

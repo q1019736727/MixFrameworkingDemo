@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-QYTestDemo/Pods-QYTestDemo-resources.sh
+${PODS_ROOT}/TMComponentKitSDK/TMFramework/TMComponentKitSDK.bundle
+${PODS_ROOT}/TMSDK/TMFramework/TMSDK.bundle
+${PODS_ROOT}/TMShare/TMFramework/TMShare.bundle
+${PODS_ROOT}/TMUserCenter/TMFramework/SetI001.bundle
+${PODS_ROOT}/TMWebViewKitSDK/TMFramework/TMWVKResources.bundle
+${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle

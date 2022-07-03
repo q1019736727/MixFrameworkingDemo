@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'OCSwiftTest' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'QYTestSDK', :git => 'https://github.com/q1019736727/QYTestSDKSpec.git', :tag => '0.0.7'
+  # Pods for OCSwiftTest
+
+end
+
+target 'OCSwiftSDK' do
+  use_frameworks!
+  pod 'QYTestSDK', :git => 'https://github.com/q1019736727/QYTestSDKSpec.git', :tag => '0.0.7'
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+end

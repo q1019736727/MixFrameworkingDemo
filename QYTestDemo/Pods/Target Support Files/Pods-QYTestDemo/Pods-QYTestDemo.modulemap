@@ -1,0 +1,6 @@
+framework module Pods_QYTestDemo {
+  umbrella header "Pods-QYTestDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
